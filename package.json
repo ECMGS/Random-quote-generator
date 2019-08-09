@@ -1,0 +1,23 @@
+{
+  "name": "random-quote-generator",
+  "version": "1.0.0",
+  "description": "a random quote generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ECMGS/Random-quote-generator.git"
+  },
+  "author": "ECMGS",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/ECMGS/Random-quote-generator/issues"
+  },
+  "homepage": "https://github.com/ECMGS/Random-quote-generator#readme",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-react-app": "^3.1.2"
+  }
+}
