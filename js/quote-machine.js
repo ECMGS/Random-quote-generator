@@ -12,17 +12,86 @@ var QuoteBox = function (_React$Component) {
     function QuoteBox(props) {
         _classCallCheck(this, QuoteBox);
 
-        return _possibleConstructorReturn(this, (QuoteBox.__proto__ || Object.getPrototypeOf(QuoteBox)).call(this, props));
+        var _this = _possibleConstructorReturn(this, (QuoteBox.__proto__ || Object.getPrototypeOf(QuoteBox)).call(this, props));
+
+        _this.state = {
+            frsel: 0
+        };
+
+        _this.numAleatorio = _this.numAleatorio.bind(_this);
+        return _this;
     }
 
     _createClass(QuoteBox, [{
+        key: "componentDidMount",
+        value: function componentDidMount() {
+            this.numAleatorio();
+        }
+    }, {
+        key: "numAleatorio",
+        value: function numAleatorio() {
+
+            var nAl = Math.round(Math.random() * 35);
+
+            this.setState({
+                frsel: nAl
+            });
+        }
+    }, {
         key: "render",
         value: function render() {
-            return React.createElement("div", { id: "quote-box" });
+
+            var frase = frases[this.state.Wfrsel];
+
+            return React.createElement(
+                "div",
+                { id: "quote-box" },
+                React.createElement(
+                    "div",
+                    { id: "center-card" },
+                    React.createElement(
+                        "div",
+                        { id: "tweet-box" },
+                        React.createElement(
+                            "a",
+                            { id: "tweet-quote", href: "https://twitter.com/intent/tweet?text=" + frase[0] },
+                            "Comparte la frase"
+                        )
+                    ),
+                    React.createElement(
+                        "div",
+                        null,
+                        React.createElement(
+                            "h2",
+                            { id: "text" },
+                            React.createElement(
+                                "i",
+                                null,
+                                "\"",
+                                frase[0],
+                                "\""
+                            )
+                        ),
+                        React.createElement(
+                            "h3",
+                            { id: "author" },
+                            "- ",
+                            frase[1]
+                        )
+                    ),
+                    React.createElement(
+                        "button",
+                        { id: "new-quote", onClick: this.numAleatorio },
+                        "Sigue inspirandome..."
+                    )
+                )
+            );
         }
     }]);
 
     return QuoteBox;
 }(React.Component);
 
-ReactDOM.render(React.createElement(QuoteBox, null), document.getElementById("quote-app"));
+function pCargada() {
+    ReactDOM.render(React.createElement(QuoteBox, null), document.getElementById("quote-app"));
+}
